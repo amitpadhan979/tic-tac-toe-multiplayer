@@ -589,3 +589,19 @@ server.listen(PORT, '0.0.0.0', () => {
   });
   console.log(`======================================================\n`);
 });
+
+// Graceful shutdown handling
+function handleShutdown(signal) {
+  console.log(`\nReceived ${signal}. Shutting down gracefully...`);
+  io.close(() => {
+    server.close(() => {
+      console.log('HTTP and WebSocket server closed.');
+      process.exit(0);
+    });
+  });
+  setTimeout(() => process.exit(0), 3000).unref();
+}
+
+process.on('SIGINT', () => handleShutdown('SIGINT'));
+process.on('SIGTERM', () => handleShutdown('SIGTERM'));
+
