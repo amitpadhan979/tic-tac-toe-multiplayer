@@ -132,6 +132,13 @@ tic-tac-toe-multiplayer/
 
 ---
 
+## 🌐 Network & Synchronization
+
+- **Socket.IO Real-time Events**: Bi-directional event bus ensuring low-latency move broadcasts.
+- **WebRTC Peer-to-Peer Fallback**: Enables low-overhead direct mesh matchmaking when server relay is optional.
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE) &copy; 2026 Amit Padhan.
