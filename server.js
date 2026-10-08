@@ -11,6 +11,8 @@ const io = new Server(server, {
     origin: '*',
     methods: ['GET', 'POST']
   },
+  pingInterval: 10000,
+  pingTimeout: 5000,
   transports: ['websocket', 'polling']
 });
 
